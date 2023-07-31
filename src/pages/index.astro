@@ -5,11 +5,14 @@ import Card from '../components/Card.astro';
 
 <Layout title="My Portfolio">
 	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
+		<h1>Carlos Custodio</h1>
+		<div class="intro-block">
+			<img class="profile-pic" src="/placeholder.png" alt="profile pic">
+		<p class="intro">
+			This is the place where I would put part of my intro, the part where I would describe myself
+
 		</p>
+	</div>
 		<ul role="list" class="link-card-grid">
 			<Card
 				href="https://docs.astro.build/"
@@ -30,11 +33,25 @@ import Card from '../components/Card.astro';
 		margin: auto;
 		padding: 1.5rem;
 		max-width: 60ch;
+		width: 100%;
+	}
+	img {
+		height: 200px;
+		width:200px;
+		border-radius:1pc;
 	}
 	h1 {
 		font-size: 3rem;
 		font-weight: 800;
 		margin: 0;
+		color: white;
+	}
+	.intro-block{
+		display: flex;
+
+	}
+	.profile-pic{
+		border-right: 5 px;
 	}
 	.text-gradient {
 		background-image: var(--accent-gradient);
@@ -43,13 +60,14 @@ import Card from '../components/Card.astro';
 		background-size: 400%;
 		background-position: 0%;
 	}
-	.instructions {
+	.intro {
 		line-height: 1.6;
 		margin: 1rem 0;
 		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
 		padding: 1rem;
 		border-radius: 0.4rem;
+		margin: 10px;
+		color: white
 	}
 	.instructions code {
 		font-size: 0.875em;
