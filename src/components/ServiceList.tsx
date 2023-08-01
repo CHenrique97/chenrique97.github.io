@@ -1,7 +1,4 @@
-
-// ServiceList.astro
-
-// Import the necessary modules
+import "./ServiceList.css"
 import { useState, useEffect } from 'react';
 import LinkCard from  './Card'
 import React from 'react';
@@ -15,9 +12,9 @@ interface props {
 
 
 
-function ServiceList() {
+const ServiceList = () => {
   // State to hold the list of services
-  const [services, setServices] = useState<props[]>([{repo:"awaiting",title:"awaiting",description:"awaiting",img:"awaiting"}]);
+  const [services, setServices] = useState<props[]>([{repo:"github.com",title:"waiting",description:"waiting",img:"awaiting"},{repo:"github.com",title:"waiting",description:"waiting",img:"awaiting"},{repo:"github.com",title:"waiting",description:"waiting",img:"awaiting"}]);
 
   // Effect to fetch the data from the API
   useEffect(() => {
@@ -36,9 +33,7 @@ function ServiceList() {
  
   // Render the list of services
   return (
-    <div>
-
-     
+    <div className='project-showcase'>
         {services.map((service) => 
          <ul key={service.repo}>
           <LinkCard{ ...{href:service.repo,

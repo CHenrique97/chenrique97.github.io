@@ -1,0 +1,13 @@
+	.project-showcase {
+        margin-top: 10px;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 20px;
+		padding-inline-start: 0px;
+        line-height: 1px;
+	}
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+    }
