@@ -1,20 +1,29 @@
----
+
 // ServiceList.astro
 
 // Import the necessary modules
 import { useState, useEffect } from 'react';
+import LinkCard from  './Card'
+import React from 'react';
 
-// Define the ServiceList component
+interface props {
+  repo: string;
+  title: string;
+  description: string;
+  img:string
+}
+
+
+
 function ServiceList() {
   // State to hold the list of services
-  const [services, setServices] = useState([]);
+  const [services, setServices] = useState<props[]>([{repo:"awaiting",title:"awaiting",description:"awaiting",img:"awaiting"}]);
 
   // Effect to fetch the data from the API
   useEffect(() => {
     fetchServices();
   }, []);
 
-  // Function to fetch services from the API
   async function fetchServices() {
     try {
       const response = await fetch('https://api.example.com/services');
@@ -24,16 +33,20 @@ function ServiceList() {
       console.error('Error fetching services:', error);
     }
   }
-
+ 
   // Render the list of services
   return (
     <div>
-      <h2>List of Services</h2>
-      <ul>
-        {services.map((service) => (
-          <li key={service.id}>{service.name}</li>
-        ))}
-      </ul>
+
+     
+        {services.map((service) => 
+         <ul key={service.repo}>
+          <LinkCard{ ...{href:service.repo,
+          title:service.title,
+          body:service.description}}/>
+          </ul>
+        )}
+      
     </div>
   );
 }
