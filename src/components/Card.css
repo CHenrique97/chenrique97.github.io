@@ -36,7 +36,21 @@
     background-position: 0;
     background-image: grey;
   }
-  .link-card:is(:hover, :focus-within) h2 {
+  .link-card:is(:hover, :focus-within) h2 img {
     color: grey;
+    border-radius: 1pc;
   }
-  
+
+
+  img {
+    padding-top: 4px;
+    padding-right: 2px;
+    height: 80px;
+    border-radius: 10pc;
+  }
+  img:is(:hover, :focus-within) {
+    padding-top: 4px;
+    padding-right: 2px;
+    height: 80px;
+    
+  }

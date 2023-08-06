@@ -4,17 +4,17 @@ import LinkCard from  './Card'
 import React from 'react';
 
 interface props {
-  repo: string;
-  title: string;
-  description: string;
-  img:string
+  Repo: string;
+  Title: string;
+  Description: string;
+  Img:string
 }
 
 
 
 const ServiceList = () => {
   // State to hold the list of services
-  const [services, setServices] = useState<props[]>([{repo:"github.com",title:"waiting",description:"waiting",img:"awaiting"},{repo:"github.com",title:"waiting",description:"waiting",img:"awaiting"},{repo:"github.com",title:"waiting",description:"waiting",img:"awaiting"}]);
+  const [services, setServices] = useState<props[]>([{Repo:"github.com",Title:"waiting",Description:"waiting",Img:"awaiting"}]);
 
   // Effect to fetch the data from the API
   useEffect(() => {
@@ -23,9 +23,9 @@ const ServiceList = () => {
 
   async function fetchServices() {
     try {
-      const response = await fetch('https://api.example.com/services');
+      const response = await fetch('https://pbackend-production.up.railway.app/');
       const data = await response.json();
-      setServices(data); // Update the state with the fetched data
+      setServices(data.message.List); // Update the state with the fetched data
     } catch (error) {
       console.error('Error fetching services:', error);
     }
@@ -35,10 +35,11 @@ const ServiceList = () => {
   return (
     <div className='project-showcase'>
         {services.map((service) => 
-         <ul key={service.repo}>
-          <LinkCard{ ...{href:service.repo,
-          title:service.title,
-          body:service.description}}/>
+         <ul key={service.Repo}>
+          <LinkCard{ ...{href:service.Repo,
+          title:service.Title,
+          body:service.Description}}/>
+          
           </ul>
         )}
       
