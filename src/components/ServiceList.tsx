@@ -38,7 +38,8 @@ const ServiceList = () => {
          <ul key={service.Repo}>
           <LinkCard{ ...{href:service.Repo,
           title:service.Title,
-          body:service.Description}}/>
+          body:service.Description,
+          img:service.Img}}/>
           
           </ul>
         )}
